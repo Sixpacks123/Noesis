@@ -1,39 +1,28 @@
 <script setup lang="ts">
-const links = [{
-  label: 'Resources',
-  children: [{
-    label: 'Help center'
-  }, {
-    label: 'Docs'
-  }, {
-    label: 'Roadmap'
-  }, {
-    label: 'Changelog'
-  }]
-}, {
-  label: 'Features',
-  children: [{
-    label: 'Affiliates'
-  }, {
-    label: 'Portal'
-  }, {
-    label: 'Jobs'
-  }, {
-    label: 'Sponsors'
-  }]
-}, {
-  label: 'Company',
-  children: [{
-    label: 'About'
-  }, {
-    label: 'Pricing'
-  }, {
-    label: 'Careers'
-  }, {
-    label: 'Blog'
-  }]
-}]
-
+const links = [
+  {
+    label: 'Noesis studio',
+    children: [
+      {
+        label:
+            'Noesis studio créé par Léa Picot, Webdesigner indépendante qui s\'est ' +
+            'lancée dans l\'aventure rennaise en freelance. ' +
+            '\n\nSon objectif : vous proposer du technique et du créatif pour vous aider à ' +
+            'pleinement réaliser votre projet !'
+      }
+    ]
+  },
+  {
+    label: 'Nos services',
+    children: [
+      { label: 'Audit ergonomique', to: '#' },
+      { label: 'Consulting UI/UX', to: '#' },
+      { label: 'Création de maquette UI/UX', to: '#' },
+      { label: 'Création / Refonte de site internet', to: '#' },
+      { label: 'Consulting Création d\'identité graphique', to: '#' }
+    ]
+  }
+]
 const toast = useToast()
 
 const email = ref('')
@@ -58,32 +47,17 @@ function onSubmit() {
     <template #top>
       <UFooterColumns :links="links">
         <template #right>
-          <form @submit.prevent="onSubmit">
-            <UFormGroup
-              label="Subscribe to our newsletter"
-              :ui="{ container: 'mt-3' }"
-            >
-              <UInput
-                v-model="email"
-                type="email"
-                placeholder="Enter your email"
-                :ui="{ icon: { trailing: { pointer: '' } } }"
-                required
-                size="xl"
-                autocomplete="off"
-                class="max-w-sm"
-              >
-                <template #trailing>
-                  <UButton
-                    type="submit"
-                    size="xs"
-                    :label="loading ? 'Subscribing' : 'Subscribe'"
-                    :loading="loading"
-                  />
-                </template>
-              </UInput>
-            </UFormGroup>
-          </form>
+          <div class="space-y-2">
+            <h3 class="font-semibold">Travaillons Ensemble !</h3>
+            <p>contact@noesisdastudio.com</p>
+            <p>06 88 98 65 01</p>
+            <UButton
+                label="Contactez-nous"
+                @click="onSubmit"
+                size="sm"
+                color="primary"
+            />
+          </div>
         </template>
       </UFooterColumns>
     </template>

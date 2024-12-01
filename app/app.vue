@@ -1,4 +1,5 @@
 <script setup lang="ts">
+const config = useAppConfig()
 useHead({
   meta: [
     { name: 'viewport', content: 'width=device-width, initial-scale=1' }
@@ -20,7 +21,9 @@ useSeoMeta({
 
 <template>
   <AppHeader />
-
+  <AppBackground
+    v-if="config.app.background"
+  />
   <UMain>
     <NuxtPage />
   </UMain>
